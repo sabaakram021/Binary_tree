@@ -1,4 +1,3 @@
-// import java.lang.Thread.State;
 import java.util.*;
 
 public class Main {
@@ -60,7 +59,20 @@ public class Main {
         }
         return root;
     }
+    public static void dispaly(Node node)
+    {
+        if(node==null) return;
+        System.out.print(node.left==null?".":node.left.data);
+        System.out.print(" <-"+node.data+"-> ");
+        System.out.println(node.right==null?" .":node.right.data);
 
+        dispaly(node.left);
+        dispaly(node.right);
+    }
     public static void main(String args[]) {
+        Integer[] arr={10,20,40,60,null,null,null,50,70,null,null,80,null,null,30,null,50,100,null,null,null};
+        Node root=construct(arr);
+        dispaly(root);
+        
     }
 }
